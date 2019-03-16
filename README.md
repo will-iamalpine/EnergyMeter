@@ -15,10 +15,10 @@ No low-cost device exists to inform power consumption in real-time. Existing plu
 ![image](https://user-images.githubusercontent.com/8934290/54468562-2297be00-474b-11e9-89aa-9c5172b7f9e7.png)
 
 ## Project Requirements:
-In the intended use case, the device would identify appliances that were plugged-in in real time. Thus the model would have to identify the appliance nearly instantaneously. The detail of the classification (not simply the type of appliance, but make, model, etc) would make for a compelling experience, however this was de-prioritized due to time constraints. Machine Learning models will be applied, and the results sent to the user. 
+The device should identify appliances being used in real-time based on their unique power consumption signatures, using ML as part of UW's TECHIN 513: Managing Data & Signal Processing, taught by [Josh Fromm](https://jwfromm.com/). The device ideally should utilize state-of-the-art ML techniques to perform the classification, with the results being sent to the user to inform behavior change. 
 
 # Software
-The software components of this project collected, cleaned, and fed the data into our classification models.  Below are the descriptions of our software and machine learning development efforts.  
+The software components of this project collected, cleaned, and fed the data into our classification models. Below are the descriptions of our software and machine learning development efforts.  
 
 ## Firmware Modifications
 To build the electronic signature of an appliance we modified the existing firmware on the EmonPi to collect the features necessary and sample at a sufficient rate.  Besides voltage and current, these features include phase angle, power factor, real power, reactive power, and apparent power.  We calibrated the voltage and current measurements using [a Kill-A-Watt meter](http://www.p3international.com/products/p4400.html) to verify that our measurements were accurate.  Built-in functions in the Emonpi were enabled to remove any noise present in the measurements.  The measurements are made using the ATMega shield attached to the EmonPi and converted into bits to be sent to the serial port on the pi.  Measurements are sent from the ATMega chip using [the RF12 packet structure](https://jeelabs.org/2011/06/09/rf12-packet-format-and-design/) and we modified the firmware to send a packet containing our feature measurement data.  This packet is read in through the serial port on the pi by a Python script which decodes/cleans the packet and performs the appliance classification.  
@@ -118,8 +118,9 @@ We trained on several common household devices which include:
 ## Iteration 3 (Final)
 We chose to keep the hardware unchanged for our third milestone for the following reasons:
 * Simplicity keeps the product extensible for future development in the open-source community
-* Little room for improvement in the product design, given we are building atop an existing product
-* Hardware is not customer-facing, as it resides in a circuit breaker
+* Little room for improvement in the current enclosure design, given we are building atop an existing product
+* Hardware is not customer-facing, and resides in a circuit breaker, thus product design is not a priority
+* The team discovered halfway through the second iteration that [Sense](https://sense.com/technology.html), a similar product, currently exists on the market and thus represents a reduced incentive to commercialize. 
 
 ## Future Work
 * Recalibrate for greater current capacity. Currently limited to 20A & requires [burden resistor swap & calibration](https://learn.openenergymonitor.org/electricity-monitoring/ct-sensors/interface-with-arduino?redirected=true)

@@ -5,7 +5,7 @@ import pandas as pd
 
 import plotly.graph_objs as go
 
-data_path = '/Users/louis/Google Drive/ricky-will-louis/data/training/laptop_will_5.csv'
+data_path = '/Users/louis/Google Drive/ricky-will-louis/data/training/kettle_ricky_7.csv'
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 var_names = {'power_factor': 'Power factor', 'phase_angle': 'Phase angle', 'power_real': 'Real power',
  'power_reactive': 'Reactive power', 'power_apparent': 'Apparent power', 'vrms': 'RMS voltage', 'irms': 'RMS current'}

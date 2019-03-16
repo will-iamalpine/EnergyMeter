@@ -4,7 +4,7 @@ EnergyMeter is a proof-of-concept energy monitoring system that provides realtim
 This project was part of University of Washington's [Global Innovation Exchange](https://gixnetwork.org/), as part of TECHIN 514: Hardware/Software Lab 1 as taught by [John Raiti](https://gixnetwork.org/people/john-raiti/). Over the course of one ten-week quarter, students built prototypes that mixed hardware (e.g. embedded systems and sensors) and software (data collection) to be used in machine learning (ML) models.  This class was broken into three milestones to present progress.
 
 ## Team: 
-Will Buchanan, Louis Quicksell, Ricky Powell
+[Will Buchanan](https://github.com/buchananwp), [Louis Quicksell](https://github.com/quicksell-louis), Ricky Powell
 
 ## Design Objectives: 
 Provide a proof of concept residential energy disaggregation feedback mechanism to provide a breakdown of appliance-specific consumption information in realtime, in a nonintrusive manner (e.g. no extra wiring/electrical work) at a low cost. Such a device would involve current and voltage sensors, which would then break down the unique signature of an appliance.

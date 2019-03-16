@@ -29,7 +29,7 @@ You should see the following after compiling and uploading:
 
 
 ## Verify Serial Interface
-In terminal, you will see this streaming JeeLibs packet info after typing teh following:
+In terminal, you will see this streaming JeeLibs packet info after typing the following:
 
 `minicom -b38400 -D/dev/ttyAMA0`
 ![image](https://user-images.githubusercontent.com/8934290/54469604-58db3a80-4757-11e9-806b-9ba033cef38a.png)

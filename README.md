@@ -14,6 +14,7 @@ Provide a proof of concept residential energy disaggregation feedback mechanism 
 
 ## Problem Statement: 
 No low-cost device exists to inform power consumption in real-time. Existing plug-level devices (such as the KillaWatt) only measure consumption of individual appliances, and require a plug at each outlet. Nonintrusive Aggregated Load Monitoring (NIALM) algorithms have not been used to their full potential value, reducing the impact of Smart Metering deployment. There is a need for real-time disaggregation monitoring for whole-home power consumption, as[studies]("K. Carrie Armel et al. / Energy Policy 52 (2013) 213–234") have shown that a >12% annualized savings results from realtime appliance-level energy consumption feedback.
+
 ![image](https://user-images.githubusercontent.com/8934290/54468562-2297be00-474b-11e9-89aa-9c5172b7f9e7.png)
 
 

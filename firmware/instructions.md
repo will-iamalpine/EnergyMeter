@@ -10,11 +10,14 @@ Follow [these instructions](https://scribles.net/disabling-bluetooth-on-raspberr
 Find & replace files in /emonpi/firmware/ with the files in the firmware folder of this repo
 
 ## Upload modified firmware using [PlatformIO](https://docs.platformio.org/en/latest/userguide/cmd_run.html)
-From the folder /emonpi/firmware/, enter the following commands: 
+Install PlatformIO on your pi. 
+`sudo pip install -U platformio`
+
+Navigate to the folder /emonpi/firmware/, enter the following commands: 
 `sudo pio init`
 `sudo pio run` #compiles
 `sudo pio run -t upload` #uploads
-You should see a success message after compile 
+You should see the following after compiling and uploading:
 
 ![image](https://user-images.githubusercontent.com/8934290/54469486-d7cf7380-4755-11e9-91e9-2bc8a0cce5cd.png)
 ![image](https://user-images.githubusercontent.com/8934290/54469543-896ea480-4756-11e9-9186-f154ee11eaa2.png)

@@ -2,7 +2,7 @@
 An emonpi-based home energy monitoring system
 
 ## Overview:
-This project was part of the Global Innovation Exchange, as part of TECHIN 514: Hardware/Software Lab 1. Over the course of one ten-week quarter, students built prototypes that mixed hardware (e.g. embedded systems and sensors) and software (data collection) to be used in machine learning (ML) models.  This class was broken into three milestones to present progress.
+This project was part of University of Washington's [Global Innovation Exchange](https://gixnetwork.org/), as part of TECHIN 514: Hardware/Software Lab 1. Over the course of one ten-week quarter, students built prototypes that mixed hardware (e.g. embedded systems and sensors) and software (data collection) to be used in machine learning (ML) models.  This class was broken into three milestones to present progress.
 
 It was built using the [EmonPi](https://openenergymonitor.com/emonpi-3/) open-source energy monitor to enable scalable disaggregation research. The experimental setup was built using a power strip as a proof of concept for a single phase of a residential house. By building this atop an extensible open-source project, we hope to share this work with the energy disaggregation community.
 
@@ -13,7 +13,8 @@ Will Buchanan, Louis Quicksell, Ricky Powell
 Provide a proof of concept residential energy disaggregation feedback mechanism to provide a breakdown of appliance-specific consumption information in realtime, in a nonintrusive manner (e.g. no extra wiring/electrical work) at a low cost. Such a device would involve current and voltage sensors, which would then break down the unique signature of an appliance.
 
 ## Problem Statement: 
-No low-cost device exists to inform power consumption in real-time. Existing plug-level devices (such as the KillaWatt) only measure consumption of individual appliances, and require a plug at each outlet. Nonintrusive Aggregated Load Monitoring (NIALM) algorithms have not been used to their full potential value, reducing the impact of Smart Metering deployment. There is a need for real-time disaggregation monitoring for whole-home power consumption, as studies have shown that a 10% decrease in power consumption [TODO SOURCE NEEDED]
+No low-cost device exists to inform power consumption in real-time. Existing plug-level devices (such as the KillaWatt) only measure consumption of individual appliances, and require a plug at each outlet. Nonintrusive Aggregated Load Monitoring (NIALM) algorithms have not been used to their full potential value, reducing the impact of Smart Metering deployment. There is a need for real-time disaggregation monitoring for whole-home power consumption, as[studies]("K. Carrie Armel et al. / Energy Policy 52 (2013) 213–234") have shown that a >12% annualized savings results from realtime appliance-level energy consumption feedback.
+![image](https://user-images.githubusercontent.com/8934290/54468562-2297be00-474b-11e9-89aa-9c5172b7f9e7.png)
 
 
 ## Project Requirements:

@@ -67,6 +67,17 @@ Due to the challenges of collecting enough data to sufficiently train a neural n
 ## Deployment
 Given the small size / low complexity of the model, we deployed it on the raspberry pi locally. It was saved using the [Keras Model Callback/Checkpoint](https://keras.io/callbacks/)function. Given the time allotted, it is not possible to deploy this product as it stands, being purely a proof of concept. The device is intended to support one household at a time, and will struggle to distinguish between appliances of similar power consumption habits.
 
+## Visualization
+We created a dashboard to plot the component features of each appliance's electronic signature.  This dashboard was created in python using [the Plotly web framework, Dash](https://plot.ly/products/dash/).  We were able to run this on our local machines but had some difficulty deploying it using Heroku.  Below are plots for the electronic signature of a water kettle.
+
+![power_plot](https://user-images.githubusercontent.com/7257165/54468410-891bdc80-4749-11e9-934c-ab0bdab256c1.png)
+
+![power_factor_phase_angle_plot](https://user-images.githubusercontent.com/7257165/54468411-891bdc80-4749-11e9-97dc-dfa7759b77d3.png)
+
+![current_plot](https://user-images.githubusercontent.com/7257165/54468412-89b47300-4749-11e9-9017-a1573ab305e9.png)
+
+![voltage_plot](https://user-images.githubusercontent.com/7257165/54468413-89b47300-4749-11e9-84cf-f0b2a9ac7e2e.png)
+
 ## Testing
 At the time of writing, real-life testing has been limited, due to time constraints. We limited testing to one week at a team member's home, and at GIX. The product is nowhere near commercial-scale deployment, so testing has been limited to small-scale.
 

@@ -128,6 +128,7 @@ We chose to keep the hardware unchanged for our third milestone for the followin
 * Develop simultaneous usage classification algorithm
 * Train on multiple-state appliances (e.g. low, medium, high)
 * Develop two and three-phase monitoring system
+* Convert EmonPi scripts to Python3
 * Add front-end for visualization 
 * Implement behavioral change studies
 

@@ -1,10 +1,7 @@
-# energyMeter
-An emonpi-based home energy monitoring system
-
 ## Overview:
 This project was part of University of Washington's [Global Innovation Exchange](https://gixnetwork.org/), as part of TECHIN 514: Hardware/Software Lab 1. Over the course of one ten-week quarter, students built prototypes that mixed hardware (e.g. embedded systems and sensors) and software (data collection) to be used in machine learning (ML) models.  This class was broken into three milestones to present progress.
 
-It was built using the [EmonPi](https://openenergymonitor.com/emonpi-3/) open-source energy monitor to enable scalable disaggregation research. The experimental setup was built using a power strip as a proof of concept for a single phase of a residential house. By building this atop an extensible open-source project, we hope to share this work with the energy disaggregation community.
+We built a proof-of-concept energy monitoring system to provide realtime appliance classification based on unique power signatures fed through machine learning models. It was built using the [EmonPi](https://openenergymonitor.com/emonpi-3/) open-source energy monitor to enable scalable disaggregation research. The experimental setup was built using a power strip as a proof of concept for a single phase of a residential house. By building this atop an extensible open-source project, we hope to share this work with the energy disaggregation community.
 
 ## Team: 
 Will Buchanan, Louis Quicksell, Ricky Powell

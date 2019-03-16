@@ -13,7 +13,7 @@ Will Buchanan, Louis Quicksell, Ricky Powell
 Provide a proof of concept residential energy disaggregation feedback mechanism to provide a breakdown of appliance-specific consumption information in realtime, in a nonintrusive manner (e.g. no extra wiring/electrical work) at a low cost. Such a device would involve current and voltage sensors, which would then break down the unique signature of an appliance.
 
 ## Problem Statement: 
-No low-cost device exists to inform power consumption in real-time. Existing plug-level devices (such as the KillaWatt) only measure consumption of individual appliances, and require a plug at each outlet. Nonintrusive Aggregated Load Monitoring (NIALM) algorithms have not been used to their full potential value, reducing the impact of Smart Metering deployment. There is a need for real-time disaggregation monitoring for whole-home power consumption, as[studies](K Carrie Armel et al Energy Policy 52 (2013) 213–234) have shown that a >12% annualized savings results from realtime appliance-level energy consumption feedback.
+No low-cost device exists to inform power consumption in real-time. Existing plug-level devices (such as the KillaWatt) only measure consumption of individual appliances, and require a plug at each outlet. Nonintrusive Aggregated Load Monitoring (NIALM) algorithms have not been used to their full potential value, reducing the impact of Smart Metering deployment. There is a need for real-time disaggregation monitoring for whole-home power consumption, as studies have shown that a >12% annualized savings results from realtime appliance-level energy consumption feedback [1].
 
 ![image](https://user-images.githubusercontent.com/8934290/54468562-2297be00-474b-11e9-89aa-9c5172b7f9e7.png)
 
@@ -127,11 +127,15 @@ We chose to keep the hardware unchanged for our third milestone for the followin
 * Hardware is not customer-facing, as it resides in a circuit breaker
 
 ## Future Work
-* Increase training dataset
+* Recalibrate for greater current capacity. Currently limited to 20A & requires [burden resistor swap & calibration](https://learn.openenergymonitor.org/electricity-monitoring/ct-sensors/interface-with-arduino?redirected=true)
+* Increase training dataset samples & diversity
 * Develop simultaneous usage classification algorithm
 * Train on multiple-state appliances (e.g. low, medium, high)
 * Develop two and three-phase monitoring system
 * Add front-end for visualization 
 * Implement behavioral change studies
+
+## Bibliography
+[1] Armel, K. Carrie, et al. "Is disaggregation the holy grail of energy efficiency? The case of electricity." Energy Policy 52 (2013): 213-234.
 
 

@@ -102,7 +102,6 @@ To begin measuring voltage, we started the project from scratch using the [OpenE
 | Moving slowly  | Conversion from EU to US power standards  |
 | More time on hardware, less on ML  | Modifying a complex product ecosystem  |
 | Less conceptual value-added  |   |
-| More time on hardware, less on ML  |   |
 
 ## Iteration 2 
 ![Iteration 2](https://user-images.githubusercontent.com/535863/54455501-39bdb800-4719-11e9-9e0d-252db1ef78da.png)

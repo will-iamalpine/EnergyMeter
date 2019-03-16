@@ -1,16 +1,24 @@
 # Firmware Instructions
 
+## Make A Copy Of Your SD Card
+Never a bad idea...
+
 ## Disable Bluetooth To Allow Serial Interface
 Follow [these instructions](https://scribles.net/disabling-bluetooth-on-raspberry-pi/#02)
 
-## Upload modified firmware using [PlatformIO](https://docs.platformio.org/en/latest/userguide/cmd_run.html)
-In terminal, navigate to the src firmware folder on your pi (/emonpi/firmware/src), and replace the existing files on your pi with the ones in this folder.
+## Swap Firmware Files
+Find & replace files in /emonpi/firmware/ with the files in the firmware folder of this repo
 
-Now enter the following commands: 
-'sudo pio init'
-'sudo pio run' #compiles
-'sudo pio run -t upload -v' #uploads
+## Upload modified firmware using [PlatformIO](https://docs.platformio.org/en/latest/userguide/cmd_run.html)
+From the folder /emonpi/firmware/, enter the following commands: 
+`sudo pio init`
+`sudo pio run` #compiles
+`sudo pio run -t upload` #uploads
 You should see a success message after compile 
+
+![image](https://user-images.githubusercontent.com/8934290/54469486-d7cf7380-4755-11e9-91e9-2bc8a0cce5cd.png)
+![image](https://user-images.githubusercontent.com/8934290/54469543-896ea480-4756-11e9-9186-f154ee11eaa2.png)
+
 
 ## View Raw Values Via Serial Interface To Verify Uploads
 In terminal, type

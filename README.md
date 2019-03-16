@@ -70,6 +70,49 @@ Given the small size / low complexity of the model, we deployed it on the raspbe
 ## Testing
 At the time of writing, real-life testing has been limited, due to time constraints. We limited testing to one week at a team member's home, and at GIX. The product is nowhere near commercial-scale deployment, so testing has been limited to small-scale.
 
+# Hardware 
+
+## Iteration 1
+![Iteration 1](https://user-images.githubusercontent.com/8934290/54461480-e869f480-4729-11e9-992c-d563a5bb2567.png)
+![image](https://user-images.githubusercontent.com/8934290/54462378-caea5a00-472c-11e9-8b2f-a4a9cac0d015.png)
+
+To begin measuring voltage, we started the project from scratch using the [OpenEnergyMonitor](https://learn.openenergymonitor.org/electricity-monitoring/voltage-sensing/measuring-voltage-with-an-acac-power-adapter) documentation, using a Raspberry Pi, an analog-digital converter, and a plug-in AC-AC adapter. Along the way we learned the fundamentals of AC power, and encountered numerous challenges related to sampling rate, aliasing, and noise. We discovered that this path would consume too much time, so we made the decision to transition to an open-source energy monitor, EmonPi. Below the rationale for our decision:
+
+| Ground-Up Hardware: | EmonPi |
+| ------------- | ------------- |
+|   |  |
+| PROS | PROS  |
+| Deep-dive into hardware development  | Accelerated schedule  |
+| Learn signal-processing fundamentals  | Integrated Voltage & Current pi shield w/ dedicated ATMega328 & 10-bit ADC  |
+| Build custom ADC firmware to suit our sampling needs  | Build atop existing development & learn from others   |
+|   | Extensible, open-source platform   |
+|   | More time on ML and less bit-banging  |
+|   |  |
+| CONS | CONS |
+| Reinvent the wheel  | Firmware modifications  |
+| Moving slowly  | Conversion from EU to US power standards  |
+| More time on hardware, less on ML  | Modifying a complex product ecosystem  |
+| Less conceptual value-added  |   |
+| More time on hardware, less on ML  |   |
+
+## Iteration 2 
+![Iteration 2](https://user-images.githubusercontent.com/535863/54455501-39bdb800-4719-11e9-9e0d-252db1ef78da.png)
+
+We used an [EmonPi](https://github.com/openenergymonitor/emonpi) which is an open-hardware Raspberry Pi and Arduino based energy monitoring unit, 1 [clip-on current sensor](https://openenergymonitor.com/100a-max-clip-on-current-sensor-ct/) to monitor a single-phase circuit, and a plug-in AC-AC adapter to measure RMS voltage. The EmonPi offers a ATMega328 shield that allowed us to build atop a significantly developed arduino firmware library, [EmonLib](https://github.com/openenergymonitor/EmonLib), enabling the increase in both sampling rate and accuracy to produce more calibrated feature sets to be used for ML classification.  
+We trained on several common household devices which include: 
+* Hair dryer
+* Induction cooktop
+* Laptop
+* Cell phone
+* Hot water kettle
+* LED digital picture frame
+
+## Iteration 3 (Final)
+We chose to keep the hardware unchanged for our third milestone for the following reasons:
+* Simplicity keeps the product extensible for future development in the open-source community
+* Little room for improvement in the product design, given we are building atop an existing product
+* Hardware is not customer-facing, as it resides in a circuit breaker
+
 ## Future Work
 * Increase training dataset
 * Develop simultaneous usage classification algorithm

@@ -41,10 +41,10 @@ Using the EmonPi, we collected the appliance type (input by user), and the consu
 `('Time', 'PF', 'Phase', 'P_real', 'P_reac', 'P_app,', 'V_rms', 'I_rms')`
 
 ## Data Collection Procedure 
-Data collection was done manually. We wrote a script which automatically detects that an appliance is turned on and then prompts the user for the type of the appliance being sampled. This is used to label a window of data containing different electronic signature features over a set time period. It contains printouts to view/validate the data, and catch any errors. Each sample is saved to a CSV which is then added to the training dataset during processing.
+Data collection was done manually. We wrote a [script](https://github.com/quicksell-louis/EnergyMeter/blob/master/scripts/train.py) which automatically detects that an appliance is turned on and then prompts the user for the type of the appliance being sampled. This is used to label a window of data containing different electronic signature features over a set time period. It contains printouts to view/validate the data, and catch any errors. Each sample is saved to a CSV which is then added to the training dataset during processing.
 
 ## Dataset Training
-Given the simplicity of our neural network, we initially attempted a run with 20 samples for each device. However, we uncovered numerous errors due to data formatting/processing in our first round of data collection & processing, and achieved only a 60% accuracy rate. This prompted us to rebuild the data processing pipeline, and collect many more samples. After tuning our model, we achieved ~90% accuracy with 100 samples per device, for a total of 700 samples. However, we futher discovered issues in our data collection script, and rewrote it to speed up the process by automatic event detection and window creation, and a state of 'none' to aid classification. We then collected a new dataset containing 800 samples. The model is now near 99% accuracy. Further refinement could be achieved, but efforts would be better spent in the functionality development.
+Given the simplicity of our neural network, we initially attempted a run with 20 samples for each device. However, we uncovered numerous errors due to data formatting/processing in our first round of data collection & processing, and achieved only a 60% accuracy rate. This prompted us to rebuild the data processing pipeline, and collect many more samples. After tuning our model, we achieved ~90% accuracy with 100 samples per device, for a total of 700 samples. However, we futher discovered issues in our data collection script, and rewrote it to speed up the process by automatic event detection and window creation, and a state of 'none' to aid classification. We then collected a new dataset containing 800 samples. The model is now near 99% accuracy. Further refinement could be achieved, but efforts would be better spent in the functionality development, mentioned in 'Future Work' section later on this page.
 
 ## Dataset Labels
 Due our previously defined scope, we chose to limit the detail of the appliance classification to seven appliances for our proof of concept. Labels are used to describe the appliance class (e.g. heatpad, kettle, laptop, induction cooktop, hairdryer). During training data collection, the appliance label is input at the start of each session, and the files are automatically incremented with the run number. There is little room for interpretation regarding appliance labels on behalf of the user, so it is unlikely there is any bias inserted.
@@ -109,13 +109,16 @@ To begin measuring voltage, we started the project from scratch following the [O
 ![Iteration 2](https://user-images.githubusercontent.com/535863/54455501-39bdb800-4719-11e9-9e0d-252db1ef78da.png)
 
 We used an [EmonPi](https://github.com/openenergymonitor/emonpi) which is an open-hardware Raspberry Pi and Arduino based energy monitoring unit, 1 [clip-on current sensor](https://openenergymonitor.com/100a-max-clip-on-current-sensor-ct/) to monitor a single-phase circuit, and a plug-in AC-AC adapter to measure RMS voltage. The EmonPi offers a ATMega328 shield that allowed us to build atop a significantly developed arduino firmware library, [EmonLib](https://github.com/openenergymonitor/EmonLib), enabling the increase in both sampling rate and accuracy to produce more calibrated feature sets to be used for ML classification.  
+
 We trained on several common household devices which include: 
-* Hair dryer
-* Induction cooktop
-* Laptop
-* Cell phone
-* Hot water kettle
-* LED digital picture frame
+* Laptop (Macbook pro)
+* Cellphone (iPhone 6)
+* Full UV Spectrum Light (aka sad-lamp)
+* Desklamp
+* Fan
+* Kettle
+* Monitor
+
 
 ## Iteration 3 (Final)
 We chose to keep the hardware unchanged for our third milestone for the following reasons:

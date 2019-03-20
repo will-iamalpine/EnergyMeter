@@ -10,6 +10,7 @@ You will need:
 
 ### Calibrate EmonPi 
 * Per [these instructions](https://learn.openenergymonitor.org/electricity-monitoring/ctac/calibration)
+* [Here are our US 120V calibrations](https://github.com/quicksell-louis/EnergyMeter/blob/master/data/Calibrating%20Vrms%20Constant.xlsx) for your reference
 ### Clone SD card to 32gb
 #TODO
 ### Install Required Packages

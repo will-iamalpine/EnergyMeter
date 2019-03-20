@@ -1,5 +1,5 @@
 ## Overview:
-EnergyMeter is a proof-of-concept energy monitoring system that provides realtime consumption information and appliance classification using state-of-the art machine learning techniques. It was built atop the [EmonPi](https://openenergymonitor.com/emonpi-3/) open-source platform. The experimental setup was built using a power strip to represent a single phase of a residential house. By building this atop an extensible open-source project, we hope to share this work with the energy disaggregation community.
+EnergyMeter is a proof-of-concept energy monitoring system that provides realtime consumption information and appliance classification using state-of-the art machine learning/neural networks. It was built atop the [EmonPi](https://openenergymonitor.com/emonpi-3/) open-source platform. The experimental setup was built using a power strip to represent a single phase of a residential house. By building this atop an extensible open-source project, we hope to share this work with the energy disaggregation community.
 
 This project was part of University of Washington's [Global Innovation Exchange](https://gixnetwork.org/), as part of TECHIN 514: Hardware/Software Lab 1 as taught by [John Raiti](https://gixnetwork.org/people/john-raiti/). Over the course of one ten-week quarter, students built prototypes that mixed hardware (e.g. embedded systems and sensors) and software (data collection) to be used in machine learning (ML) models.  This class was broken into three milestones to present progress.
 
@@ -10,7 +10,7 @@ This project was part of University of Washington's [Global Innovation Exchange]
 Provide a proof of concept residential energy disaggregation feedback mechanism to provide a breakdown of appliance-specific consumption information in realtime, in a nonintrusive manner (e.g. no extra wiring/electrical work) at a low cost. Such a device would involve current and voltage sensors, which would then break down the unique signature of an appliance.
 
 ## Problem Statement: 
-No low-cost device exists to inform power consumption in real-time. Existing plug-level devices (such as the KillaWatt) only measure consumption of individual appliances, and require a plug at each outlet. Nonintrusive Aggregated Load Monitoring (NIALM) algorithms have not been used to their full potential value, reducing the impact of Smart Metering deployment. There is a need for real-time disaggregation monitoring for whole-home power consumption, as studies have shown that a >12% annualized savings results from realtime appliance-level energy consumption feedback [1].
+Few low-cost devices exist to inform appliance-level power consumption in real-time, providing consumers little opportunity to understand where to conserve electricity. Existing plug-level devices (such as the KillaWatt) only measure consumption of individual appliances, and require a plug at each outlet. Nonintrusive Aggregated Load Monitoring (NIALM) algorithms have not been used to their full potential value, reducing the impact of Smart Metering deployment. There is a need for an open-source real-time disaggregation monitoring for whole-home power consumption, as studies have shown that a >12% annualized savings results from realtime appliance-level energy consumption feedback [1].
 
 ![image](https://user-images.githubusercontent.com/8934290/54468562-2297be00-474b-11e9-89aa-9c5172b7f9e7.png)
 
@@ -77,7 +77,7 @@ We created a dashboard to plot the component features of each appliance's electr
 ![voltage_plot](https://user-images.githubusercontent.com/7257165/54468413-89b47300-4749-11e9-84cf-f0b2a9ac7e2e.png)
 
 ## Testing
-At the time of writing, real-life testing has been limited, due to time constraints. We limited testing to one week at a team member's home, and at GIX. The product is nowhere near commercial-scale deployment, so testing has been limited to small-scale.
+At the time of writing, real-life testing has been limited, primarily due to project timeline constraints. However, full functionality has been demonstrated, and we hope the disaggregation community takes this farther. 
 
 # Hardware 
 
@@ -85,7 +85,7 @@ At the time of writing, real-life testing has been limited, due to time constrai
 ![Iteration 1](https://user-images.githubusercontent.com/8934290/54461480-e869f480-4729-11e9-992c-d563a5bb2567.png)
 ![image](https://user-images.githubusercontent.com/8934290/54462378-caea5a00-472c-11e9-8b2f-a4a9cac0d015.png)
 
-To begin measuring voltage, we started the project from scratch using the [OpenEnergyMonitor](https://learn.openenergymonitor.org/electricity-monitoring/voltage-sensing/measuring-voltage-with-an-acac-power-adapter) documentation, using a Raspberry Pi, an analog-digital converter, and a plug-in AC-AC adapter. Along the way we learned the fundamentals of AC power, and encountered numerous challenges related to sampling rate, aliasing, and noise. We discovered that this path would consume too much time, so we made the decision to transition to an open-source energy monitor, EmonPi. Below the rationale for our decision:
+To begin measuring voltage, we started the project from scratch following the [OpenEnergyMonitor](https://learn.openenergymonitor.org/electricity-monitoring/voltage-sensing/measuring-voltage-with-an-acac-power-adapter) documentation, using a Raspberry Pi, an analog-digital converter, and a plug-in AC-AC adapter. Along the way we learned the fundamentals of AC power, and encountered numerous technical hurdles: ADC sampling rate, aliasing, and noise. After reeevaluating the schedule, we made the decision to transition to an open-source energy monitor, EmonPi. Below is the rationale for our decision:
 
 | Ground-Up Hardware: | EmonPi |
 | ------------- | ------------- |
@@ -120,15 +120,16 @@ We chose to keep the hardware unchanged for our third milestone for the followin
 * Simplicity keeps the product extensible for future development in the open-source community
 * Little room for improvement in the current enclosure design, given we are building atop an existing product
 * Hardware is not customer-facing, and resides in a circuit breaker, thus product design is not a priority
-* The team discovered halfway through the second iteration that [Sense](https://sense.com/technology.html), a similar product, currently exists on the market and thus represents a reduced incentive to commercialize. 
+* The team discovered halfway through the second iteration that [Sense](https://sense.com/technology.html), a similar product, currently exists on the market, and thus represents a reduced incentive to commercialize. 
 
 ## Future Work
-* Recalibrate for greater current capacity. Currently limited to 20A & requires [burden resistor swap & calibration](https://learn.openenergymonitor.org/electricity-monitoring/ct-sensors/interface-with-arduino?redirected=true)
-* Increase training dataset samples & diversity
-* Develop simultaneous usage classification algorithm
+* Develop concurrent appliance operation functionality. This would allow for overlapping signatures, and a more realistic use-case.
 * Train on multiple-state appliances (e.g. low, medium, high)
+* Increase training dataset samples & diversity
+* Build out greater current capacity. Currently limited to 20A & upgrading to a larger scale would require a [burden resistor swap & calibration](https://learn.openenergymonitor.org/electricity-monitoring/ct-sensors/interface-with-arduino?redirected=true)
 * Develop two and three-phase monitoring system
 * Convert EmonPi scripts to Python3
+* Fix MSQTT 'broken pipe' error that results from our having disabled the MSQTT server. This means the pi needs restarting occasionally. Should be an easy fix.
 * Add front-end for visualization 
 * Implement behavioral change studies
 

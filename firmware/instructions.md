@@ -33,3 +33,5 @@ In terminal, you will see this streaming JeeLibs packet info after typing the fo
 
 `minicom -b38400 -D/dev/ttyAMA0`
 ![image](https://user-images.githubusercontent.com/8934290/54469604-58db3a80-4757-11e9-806b-9ba033cef38a.png)
+
+## Follow The [Remaining Instructions] (https://github.com/quicksell-louis/EnergyMeter/blob/master/instructions.md)

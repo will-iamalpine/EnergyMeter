@@ -53,9 +53,9 @@ Might be smart to let it cool after each run, but that would take a ton of time.
 `appliance_dict = {0: 'cell', 1: 'desklamp', 2: 'fan', 3: 'kettle', 4: 'laptop', 5: 'monitor', 6: 'none', 7: 'sadlamp'} #N.B. update this with each model!`
 
 ### Classify!
-* The script will print out 
-* As stands, the script only classifies one item at a time. See future work for inspiration to expand the capabilities
-* This is where it gets fun. Please contribute!
+* The script will print out the result of the classification and the confidence. 
+* See future work for inspiration to expand the capabilities, as there is no shortage of work to be done
+* Please contribute!
 
 ![image](https://user-images.githubusercontent.com/8934290/54723395-ab847000-4b24-11e9-972c-41f37fc29c30.png)
 ![image](https://user-images.githubusercontent.com/8934290/54723425-be974000-4b24-11e9-9a49-8d0b971353e8.png)

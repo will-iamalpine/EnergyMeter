@@ -36,13 +36,15 @@ Several functions were written to decode and format the collected data appropria
 Our model was constructed with Keras & Tensorflow. This is a multi-class classification problem. There is some overlap among electronic signatures of appliances with similar electrical components (a toaster and a hot plate are both resistive loads and it follows that they would have similar load signatures). If we were implementing classification at a finer level there may be some overlap among different make/models in appliance types, however this is beyond the scope of our project.
 
 ## Feature Description
-Using the EmonPi, we collected the appliance type (input by user), and the consumption signature of the device in a CSV format. These fields include: time, power factor, phase angle, real/reactive/apparent power, and RMS voltage/current. This constitutes 8 features that are recorded in a rolling window, which is used to perform the classification. 
+Using the EmonPi, we collected the appliance type (input by user), and the consumption signature of the device in a CSV format. These fields include: time, power factor, phase angle, real/reactive/apparent power, and RMS voltage/current. This constitutes 8 features that are recorded in a rolling window, which is used to perform the classification:
+
+`('Time', 'PF', 'Phase', 'P_real', 'P_reac', 'P_app,', 'V_rms', 'I_rms')`
 
 ## Data Collection Procedure 
-Data collection was done manually. We wrote a script which prompts the user for the type of the appliance being sampled. This is used to label a window of data containing different electronic signature features over a set time period. After the type of the appliance is entered, the script starts a short countdown before prompting the user to initiate the appliance. The script has built in error detection that halts collection for various reasons including erroneous power data, serial read errors, and output errors. Each sample is saved to a CSV which is then added to the training dataset.
+Data collection was done manually. We wrote a script which automatically detects that an appliance is turned on and then prompts the user for the type of the appliance being sampled. This is used to label a window of data containing different electronic signature features over a set time period. It contains printouts to view/validate the data, and catch any errors. Each sample is saved to a CSV which is then added to the training dataset during processing.
 
 ## Dataset Training
-Given the simplicity of our neural network, we initially attempted a run with 20 samples for each device. This gave us a 60% accuracy rate. Along the way, we discovered numerous issues with our data formatting, so rewrote our data pipeline. After tuning our model, we achieved ~90% accuracy with 100 samples per device, with a total of around 700 samples.
+Given the simplicity of our neural network, we initially attempted a run with 20 samples for each device. However, we uncovered numerous errors due to data formatting/processing in our first round of data collection & processing, and achieved only a 60% accuracy rate. This prompted us to rebuild the data processing pipeline, and collect many more samples. After tuning our model, we achieved ~90% accuracy with 100 samples per device, for a total of 700 samples. However, we futher discovered issues in our data collection script, and rewrote it to speed up the process by automatic event detection and window creation, and a state of 'none' to aid classification. We then collected a new dataset containing 800 samples. The model is now near 99% accuracy. Further refinement could be achieved, but efforts would be better spent in the functionality development.
 
 ## Dataset Labels
 Due our previously defined scope, we chose to limit the detail of the appliance classification to seven appliances for our proof of concept. Labels are used to describe the appliance class (e.g. heatpad, kettle, laptop, induction cooktop, hairdryer). During training data collection, the appliance label is input at the start of each session, and the files are automatically incremented with the run number. There is little room for interpretation regarding appliance labels on behalf of the user, so it is unlikely there is any bias inserted.
@@ -123,15 +125,19 @@ We chose to keep the hardware unchanged for our third milestone for the followin
 * The team discovered halfway through the second iteration that [Sense](https://sense.com/technology.html), a similar product, currently exists on the market, and thus represents a reduced incentive to commercialize. 
 
 ## Future Work
-* Develop concurrent appliance operation functionality. This would allow for overlapping signatures, and a more realistic use-case.
+Quite a bit of work is needed to bring this to its full potential. Here is a roughly prioritized list:
+* Develop concurrent appliance operation functionality. This would allow for overlapping signatures, thus a more realistic use-case
+* Collect 'off' state appliance status, to detect when an appliance is turned off
+* Develop running tally of consumption per device
 * Train on multiple-state appliances (e.g. low, medium, high)
-* Increase training dataset samples & diversity
+* Understand how appliance state changes over time (e.g. if it is 'warmed up', certain loads have different startup characteristics)
+* Increase training dataset samples & diversity, as neural networks need more data to function well
 * Build out greater current capacity. Currently limited to 20A & upgrading to a larger scale would require a [burden resistor swap & calibration](https://learn.openenergymonitor.org/electricity-monitoring/ct-sensors/interface-with-arduino?redirected=true)
 * Develop two and three-phase monitoring system
 * Convert EmonPi scripts to Python3
-* Fix MSQTT 'broken pipe' error that results from our having disabled the MSQTT server. This means the pi needs restarting occasionally. Should be an easy fix.
 * Add front-end for visualization 
 * Implement behavioral change studies
+* Fix MSQTT 'broken pipe' error that results from our having disabled the MSQTT server. This means the pi needs restarting occasionally. Should be an easy fix.
 
 ## Bibliography
 [1] Armel, K. Carrie, et al. "Is disaggregation the holy grail of energy efficiency? The case of electricity." Energy Policy 52 (2013): 213-234.

@@ -45,6 +45,9 @@ Might be smart to let it cool after each run, but that would take a ton of time.
 
 `scp wb_model_1.h5 pi@(your pi's IP):/home/pi/DEV/`
 
+### Test Model Functionality Locally
+* [Here's a script](https://github.com/quicksell-louis/EnergyMeter/blob/master/scripts/test_classify.py) to allow local test before uploading to the pi, which saves a bit of hassle
+
 
 ### Upload Classifier Encoding To Pi
 * In "model_creation.ipynb", copy the dictionary printout from line `print("appliance_dict = ",encoding)`

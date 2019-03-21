@@ -25,6 +25,7 @@ or
 * Per [these instructions](https://github.com/quicksell-louis/EnergyMeter/blob/master/firmware/instructions.md) 
 
 ### Create Necessary Folders
+In terminal on your pi:
 * `mkdir /home/pi/DEV/` (where scripts will reside)
 * `mkdir /home/pi/DEV/data_train` (where training dataset will reside)
 
@@ -61,10 +62,17 @@ Might be smart to let it cool after each run, but that would take a ton of time.
 * See future work for inspiration to expand the capabilities, as there is no shortage of work to be done
 * Please contribute!
 
+Desk Lamp
 ![image](https://user-images.githubusercontent.com/8934290/54723395-ab847000-4b24-11e9-972c-41f37fc29c30.png)
+Full Spectrum Lamp (sadlamp)
 ![image](https://user-images.githubusercontent.com/8934290/54723425-be974000-4b24-11e9-9a49-8d0b971353e8.png)
+Fan
 ![image](https://user-images.githubusercontent.com/8934290/54723448-d53d9700-4b24-11e9-9cc0-7cc9c2840edd.png)
+Kettle
 ![image](https://user-images.githubusercontent.com/8934290/54723488-f56d5600-4b24-11e9-94cf-ceb84dfbced2.png)
+Laptop
 ![image](https://user-images.githubusercontent.com/8934290/54723532-19309c00-4b25-11e9-8dd8-79155f74c0c1.png)
+Monitor
 ![image](https://user-images.githubusercontent.com/8934290/54723581-3bc2b500-4b25-11e9-82bb-cd1f05078126.png)
+iPhone
 ![image](https://user-images.githubusercontent.com/8934290/54723618-5bf27400-4b25-11e9-8adc-63e49a7a231c.png)

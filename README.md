@@ -70,7 +70,7 @@ This is a low-precision application, as it is used to inform behavioral change. 
 ![image](https://user-images.githubusercontent.com/8934290/54848536-c2e76880-4c9e-11e9-90ac-53c4d0f20745.png)
 
 ## Neural Network Vs. Supervised Learning
-For comparison, we explored a variety of [supervised learning techniques](https://github.com/buchananwp/EnergyMeter/blob/master/scripts/supervised_modeling.ipynb): GBM, Random Forest, Logistic Regression, Naive Bayes, Support Vector Machines. Ultimately, we chose to pursue the NN model, but found that comparably accurate models could be made by tweaking these models. 
+For comparison, we wrote a [script that explored a variety of supervised learning techniques](https://github.com/buchananwp/EnergyMeter/blob/master/scripts/supervised_modeling.ipynb): GBM, Random Forest, Logistic Regression, Naive Bayes, Support Vector Machines. Ultimately, we chose to pursue the NN model, but found that comparably accurate models could be made by tweaking these models. 
 
 ## Data Preprocessing & Augmentation 
 Due to the challenges of collecting enough data to sufficiently train a neural network, we explored the path of data augmentation to increase our dataset. Our approach to reduce overfitting involved a random application of a stretch or a shrink to the window, inspired by [this paper](https://aaltd16.irisa.fr/files/2016/08/AALTD16_paper_9.pdf). The function chooses a random sample equal to 1/10 of the size of the source array, and replaces sample with pair-wise average of sample indices. This was fed in using the [Keras Image Datagenerator](https://keras.io/preprocessing/image/) object, which performs the preprocessing function during each epoch. Given the accuracy of the model, it proved unnecessary.

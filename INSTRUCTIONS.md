@@ -60,9 +60,8 @@ Might be smart to let it cool after each run, but that would take a ton of time.
 `appliance_dict = {0: 'cell', 1: 'desklamp', 2: 'fan', 3: 'kettle', 4: 'laptop', 5: 'monitor', 6: 'none', 7: 'sadlamp'} #N.B. update this with each model!`
 
 ### Classify!
-* The script will print out the result of the classification and the confidence. 
-* See future work for inspiration to expand the capabilities, as there is no shortage of work to be done
-* Please contribute!
+* [This script](https://github.com/buchananwp/EnergyMeter/blob/master/scripts/rolling_classifier.py) will print out the result of the classification and the confidence, after you've put it in the DEV folder on your pi.
+* See future work for inspiration to expand the capabilities
 
 Desk Lamp
 ![image](https://user-images.githubusercontent.com/8934290/54723395-ab847000-4b24-11e9-972c-41f37fc29c30.png)

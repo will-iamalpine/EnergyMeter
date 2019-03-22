@@ -4,7 +4,7 @@ EnergyMeter is a proof-of-concept energy monitoring system that provides realtim
 This project was part of University of Washington's [Global Innovation Exchange](https://gixnetwork.org/), as part of TECHIN 514: Hardware/Software Lab 1 as taught by [John Raiti](https://gixnetwork.org/people/john-raiti/). Over the course of one ten-week quarter, students built prototypes that mixed hardware (e.g. embedded systems and sensors) and software (data collection) to be used in machine learning (ML) models.  This class was broken into three milestones to present progress.
 
 ## Team: 
-[Will Buchanan](https://github.com/buchananwp), [Louis Quicksell](https://github.com/quicksell-louis), Ricky Powell
+[Will Buchanan](https://github.com/buchananwp), [Louis Quicksell](https://github.com/quicksell-louis), [Ricky Powell](https://github.com/henny316)
 
 ## Design Objectives: 
 Provide a proof of concept residential energy disaggregation feedback mechanism to provide a breakdown of appliance-specific consumption information in realtime, in a nonintrusive manner (e.g. no extra wiring/electrical work) at a low cost. Such a device would involve current and voltage sensors, which would then break down the unique signature of an appliance.
@@ -74,7 +74,7 @@ Due to the challenges of collecting enough data to sufficiently train a neural n
 Given the small size / low complexity of the model, we deployed it on the raspberry pi locally. It was saved using the [Keras Model Callback/Checkpoint](https://keras.io/callbacks/)function. Given the time allotted, it is not possible to deploy this product as it stands, being purely a proof of concept. The device is intended to support one household at a time, and will struggle to distinguish between appliances of similar power consumption habits.
 
 ## Visualization
-We created a dashboard to plot the component features of each appliance's electronic signature.  This dashboard was created in python using [the Plotly web framework, Dash](https://plot.ly/products/dash/).  We were able to run this on our local machines but had some difficulty deploying it using Heroku.  Below are the feature plots for each appliance,
+We created a dashboard to plot the component features of each appliance's electronic signature.  This dashboard was created in python using [the Plotly web framework, Dash](https://plot.ly/products/dash/).  We were able to run this on our local machines but had some difficulty deploying it using Heroku.  Below are the feature plots for each appliance.
 
 ![voltage plot](https://user-images.githubusercontent.com/7257165/54848888-bf081600-4c9f-11e9-9b87-dbe0551d1015.png)
 

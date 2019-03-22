@@ -11,15 +11,17 @@ You will need:
 ### Calibrate EmonPi 
 * Per [these instructions](https://learn.openenergymonitor.org/electricity-monitoring/ctac/calibration)
 * [Here are our US 120V calibrations](https://github.com/quicksell-louis/EnergyMeter/blob/master/data/Calibrating%20Vrms%20Constant.xlsx) for your reference
+
 ### Clone SD card to 32gb
-#TODO
+Since the 8gb emonpi SD card is partitioned in a way that will not allow installation of tensorflow, it is necessary to clone it to a larger card.
+
 ### Install Required Packages
-* Tensorflow #TODO
+* Tensorflow 
 * Numpy 
 `sudo apt install --no-install-recommends python2.7-minimal python2.7` 
 or 
 `#sudo apt install python-numpy python-scipy`
-* Scikit-learn #TODO
+* Scikit-learn 
 
 ### Compile & Upload Firmware 
 * Per [these instructions](https://github.com/quicksell-louis/EnergyMeter/blob/master/firmware/instructions.md) 

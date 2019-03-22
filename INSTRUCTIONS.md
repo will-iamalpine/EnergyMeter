@@ -1,6 +1,6 @@
 ### Buy Supplies
 You will need:
-* [EmonPi](https://openenergymonitor.com/emonpi-3/), CT & Voltage (from emonpi store) ($350 USD-ish)
+* [EmonPi](https://openenergymonitor.com/emonpi-3/), CT & Voltage (from emonpi store) (~$350 USD)
 * 32gb SD card ($10 USD)
 * Power strip ($10 USD)
 ### Build Experimental Setup

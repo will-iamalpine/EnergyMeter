@@ -50,12 +50,14 @@ Given the simplicity of our neural network, we initially attempted a run with 20
 Due our previously defined scope, we chose to limit the detail of the appliance classification to seven appliances for our proof of concept. Labels are used to describe the appliance class (e.g. heatpad, kettle, laptop, induction cooktop, hairdryer). During training data collection, the appliance label is input at the start of each session, and the files are automatically incremented with the run number. There is little room for interpretation regarding appliance labels on behalf of the user, so it is unlikely there is any bias inserted.
 
 ## Neural Network Model Design/Architecture
-After comparing several model architectures, we optimized for performance & simplicity. There was no significant performance difference between architectures that warranted additional work. Here is our final network architecture:
+After comparing several model architectures, we optimized for performance & simplicity. There was no significant performance difference between architectures that warranted additional work. 
+
 ### Hyperparameters Of Model
 * Optimization algorithm: adam
 * Training: 20 epochs
 * Regularization: relu and softmax (final layer)
 
+Here is our final network architecture:
 ![image](https://user-images.githubusercontent.com/8934290/54848637-0e9a1200-4c9f-11e9-9fdb-c513eebc4085.png)
 
 ## Neural Network Model Comparison
@@ -66,6 +68,9 @@ After comparing several model architectures, we optimized for performance & simp
 ## Training & Valiation
 This is a low-precision application, as it is used to inform behavioral change. The validation accuracy will be sufficient for real-time feedback, though if this were a commercial product much more development could be warranted. Below is our validation and model comparison.
 ![image](https://user-images.githubusercontent.com/8934290/54848536-c2e76880-4c9e-11e9-90ac-53c4d0f20745.png)
+
+## Neural Network Vs. Supervised Learning
+For comparison, we explored a variety of [supervised learning techniques](https://github.com/buchananwp/EnergyMeter/blob/master/scripts/supervised_modeling.ipynb): GBM, Random Forest, Logistic Regression, Naive Bayes, Support Vector Machines. Ultimately, we chose to pursue the NN model, but found that comparably accurate models could be made by tweaking these models. 
 
 ## Data Preprocessing & Augmentation 
 Due to the challenges of collecting enough data to sufficiently train a neural network, we explored the path of data augmentation to increase our dataset. Our approach to reduce overfitting involved a random application of a stretch or a shrink to the window, inspired by [this paper](https://aaltd16.irisa.fr/files/2016/08/AALTD16_paper_9.pdf). The function chooses a random sample equal to 1/10 of the size of the source array, and replaces sample with pair-wise average of sample indices. This was fed in using the [Keras Image Datagenerator](https://keras.io/preprocessing/image/) object, which performs the preprocessing function during each epoch. Given the accuracy of the model, it proved unnecessary.

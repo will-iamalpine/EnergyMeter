@@ -50,19 +50,25 @@ Given the simplicity of our neural network, we initially attempted a run with 20
 Due our previously defined scope, we chose to limit the detail of the appliance classification to seven appliances for our proof of concept. Labels are used to describe the appliance class (e.g. heatpad, kettle, laptop, induction cooktop, hairdryer). During training data collection, the appliance label is input at the start of each session, and the files are automatically incremented with the run number. There is little room for interpretation regarding appliance labels on behalf of the user, so it is unlikely there is any bias inserted.
 
 ## Neural Network Model Design/Architecture
-For simplicity, we chose a three-layer dense network. There was no significant performance difference between architectures that warranted additional work. We are still studying our model, but focusing on real-world data collection, and less on model accuracy.
-![Image](https://user-images.githubusercontent.com/8934290/54455367-d7fd4e00-4718-11e9-9492-52c09460da44.png)
-
-## Hyperparameters Of Model
+After comparing several model architectures, we optimized for performance & simplicity. There was no significant performance difference between architectures that warranted additional work. Here is our final network architecture:
+### Hyperparameters Of Model
 * Optimization algorithm: adam
 * Training: 20 epochs
 * Regularization: relu and softmax (final layer)
 
-## Training/Validation
-This is a low-precision application, as it is used to inform behavioral change. The validation accuracy will be sufficient for real-time feedback, though if this were a commercial product much more development would be needed.
+![image](https://user-images.githubusercontent.com/8934290/54848637-0e9a1200-4c9f-11e9-9fdb-c513eebc4085.png)
+
+## Neural Network Model Comparison
+![image](https://user-images.githubusercontent.com/8934290/54848426-769c2880-4c9e-11e9-8d9d-580e4110041b.png)
+![image](https://user-images.githubusercontent.com/8934290/54848485-9f242280-4c9e-11e9-89e7-eacbc5989d21.png)
+![image](https://user-images.githubusercontent.com/8934290/54848506-acd9a800-4c9e-11e9-8c90-fb324d259da6.png)
+
+## Training & Valiation
+This is a low-precision application, as it is used to inform behavioral change. The validation accuracy will be sufficient for real-time feedback, though if this were a commercial product much more development could be warranted. Below is our validation and model comparison.
+![image](https://user-images.githubusercontent.com/8934290/54848536-c2e76880-4c9e-11e9-90ac-53c4d0f20745.png)
 
 ## Data Preprocessing & Augmentation 
-Due to the challenges of collecting enough data to sufficiently train a neural network, we explored the path of data augmentation to increase our dataset. Our approach to reduce overfitting involved a random application of a stretch or a shrink to the window, inspired by [this paper](https://aaltd16.irisa.fr/files/2016/08/AALTD16_paper_9.pdf). The function chooses a random sample equal to 1/10 of the size of the source array, and replaces sample with pair-wise average of sample indices. This was fed in using the [Keras Image Datagenerator](https://keras.io/preprocessing/image/) object, which performs the preprocessing function during each epoch, thus enhancing our training dataset.
+Due to the challenges of collecting enough data to sufficiently train a neural network, we explored the path of data augmentation to increase our dataset. Our approach to reduce overfitting involved a random application of a stretch or a shrink to the window, inspired by [this paper](https://aaltd16.irisa.fr/files/2016/08/AALTD16_paper_9.pdf). The function chooses a random sample equal to 1/10 of the size of the source array, and replaces sample with pair-wise average of sample indices. This was fed in using the [Keras Image Datagenerator](https://keras.io/preprocessing/image/) object, which performs the preprocessing function during each epoch. Given the accuracy of the model, it proved unnecessary.
 
 ## Deployment
 Given the small size / low complexity of the model, we deployed it on the raspberry pi locally. It was saved using the [Keras Model Callback/Checkpoint](https://keras.io/callbacks/)function. Given the time allotted, it is not possible to deploy this product as it stands, being purely a proof of concept. The device is intended to support one household at a time, and will struggle to distinguish between appliances of similar power consumption habits.

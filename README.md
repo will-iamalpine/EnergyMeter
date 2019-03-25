@@ -105,8 +105,8 @@ At the time of writing, real-life testing has been limited, primarily due to pro
 
 ## Iteration 1
 ![Iteration 1](https://user-images.githubusercontent.com/8934290/54461480-e869f480-4729-11e9-992c-d563a5bb2567.png)
-A plot of voltage obtained over time. Note the influence of aliasing and noise in the readings.
 ![image](https://user-images.githubusercontent.com/8934290/54462378-caea5a00-472c-11e9-8b2f-a4a9cac0d015.png)
+Above, a plot of voltage obtained over time. Note the influence of aliasing and noise in the readings.
 
 To begin measuring voltage, we started the project from scratch following the [OpenEnergyMonitor](https://learn.openenergymonitor.org/electricity-monitoring/voltage-sensing/measuring-voltage-with-an-acac-power-adapter) documentation, using a Raspberry Pi, an analog-digital converter, and a plug-in AC-AC adapter. Along the way we learned the fundamentals of AC power, and encountered numerous technical hurdles: ADC sampling rate, aliasing, and noise. After reeevaluating the schedule, we made the decision to transition to an open-source energy monitor, EmonPi. Below is the rationale for our decision:
 

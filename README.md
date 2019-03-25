@@ -43,6 +43,9 @@ Using the EmonPi, we collected the appliance type (input by user), and the consu
 ## Data Collection Procedure 
 Data collection was done manually. We wrote a [script](https://github.com/quicksell-louis/EnergyMeter/blob/master/scripts/train.py) which automatically detects that an appliance is turned on and then prompts the user for the type of the appliance being sampled. This is used to label a window of data containing different electronic signature features over a set time period. It contains printouts to view/validate the data, and catch any errors. Each sample is saved to a CSV which is then added to the training dataset during processing.
 
+## Event Detection & Rolling Window Classifier &Method
+Our approach used an event detection method which involved comparing the current reading with the average of two previous readings. An event was detected if that change exceeded a certain threshold, in our case 5W. A rolling window was constructed in the form of a numpy array, which contained 40 readings. When an event is detected, it populates the window up until the first two rows, thus allowing accurate capture of the startup sequence. The rolling window method was used for both training and classification.
+
 ## Dataset Training
 Given the simplicity of our neural network, we initially attempted a run with 20 samples for each device. However, we uncovered numerous errors due to data formatting/processing in our first round of data collection & processing, and achieved only a 60% accuracy rate. This prompted us to rebuild the data processing pipeline, and collect many more samples. After tuning our model, we achieved ~90% accuracy with 100 samples per device, for a total of 700 samples. However, we futher discovered issues in our data collection script, and rewrote it to speed up the process by automatic event detection and window creation, and a state of 'none' to aid classification. We then collected a new dataset containing 800 samples. The model is now near 99% accuracy. Further refinement could be achieved, but efforts would be better spent in the functionality development, mentioned in 'Future Work' section later on this page.
 
@@ -161,5 +164,5 @@ Quite a bit of work is needed to bring this to its full potential. Here is a rou
 
 ## Bibliography
 [1] Armel, K. Carrie, et al. "Is disaggregation the holy grail of energy efficiency? The case of electricity." Energy Policy 52 (2013): 213-234.
-
+[2]Le Guennec, A., Malinowski, S., & Tavenard, R. (2016, September). Data augmentation for time series classification using convolutional neural networks. In ECML/PKDD workshop on advanced analytics and learning on temporal data.
 

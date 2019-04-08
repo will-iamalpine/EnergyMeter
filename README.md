@@ -6,7 +6,7 @@ This project was part of University of Washington's [Global Innovation Exchange]
 ![Iteration 2](https://user-images.githubusercontent.com/535863/54455501-39bdb800-4719-11e9-9e0d-252db1ef78da.png)
 
 ## Team: 
-[Will Buchanan](https://github.com/buchananwp), [Louis Quicksell](https://github.com/quicksell-louis), [Ricky Powell](https://github.com/henny316)
+[Ricky Powell](https://github.com/henny316), [Will Buchanan](https://github.com/buchananwp), [Louis Quicksell](https://github.com/quicksell-louis)
 
 ![image](https://user-images.githubusercontent.com/8934290/55758610-1a5e3600-5a0c-11e9-941a-70dd4829452f.png)
 

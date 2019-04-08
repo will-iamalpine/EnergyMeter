@@ -3,6 +3,8 @@ EnergyMeter is a proof-of-concept energy monitoring system that provides realtim
 
 This project was part of University of Washington's [Global Innovation Exchange](https://gixnetwork.org/), as part of TECHIN 514: Hardware/Software Lab 1 as taught by [John Raiti](https://gixnetwork.org/people/john-raiti/). Over the course of one ten-week quarter, students built prototypes that mixed hardware (e.g. embedded systems and sensors) and software (data collection) to be used in machine learning (ML) models.  This class was broken into three milestones to present progress.
 
+![Iteration 2](https://user-images.githubusercontent.com/535863/54455501-39bdb800-4719-11e9-9e0d-252db1ef78da.png)
+
 ## Team: 
 [Will Buchanan](https://github.com/buchananwp), [Louis Quicksell](https://github.com/quicksell-louis), [Ricky Powell](https://github.com/henny316)
 

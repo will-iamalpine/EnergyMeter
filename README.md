@@ -8,7 +8,7 @@ This project was part of University of Washington's [Global Innovation Exchange]
 ## Team: 
 [Ricky Powell](https://github.com/henny316), [Will Buchanan](https://github.com/buchananwp), [Louis Quicksell](https://github.com/quicksell-louis)
 
-![image](https://user-images.githubusercontent.com/8934290/55758610-1a5e3600-5a0c-11e9-941a-70dd4829452f.png)
+![IMG_20190408_132902](https://user-images.githubusercontent.com/7257165/55855449-6ac4b900-5b1c-11e9-9754-01aa878a6eae.jpg)
 
 
 ## Design Objectives: 

@@ -6,7 +6,7 @@ This project was part of University of Washington's [Global Innovation Exchange]
 ![Iteration 2](https://user-images.githubusercontent.com/535863/54455501-39bdb800-4719-11e9-9e0d-252db1ef78da.png)
 
 ## Team: 
-[Ricky Powell](https://github.com/henny316), [Will Buchanan](https://github.com/buchananwp), [Louis Quicksell(https://github.com/quicksell-louis)
+[Ricky Powell](https://github.com/henny316), [Will Buchanan](https://github.com/buchananwp), [Louis Quicksell](https://github.com/quicksell-louis)
 
 ## Design Objectives: 
 Provide a proof of concept residential energy disaggregation feedback mechanism to provide a breakdown of appliance-specific consumption information in realtime, in a nonintrusive manner (e.g. no extra wiring/electrical work) at a low cost. Such a device would involve current and voltage sensors, which would then break down the unique signature of an appliance.
